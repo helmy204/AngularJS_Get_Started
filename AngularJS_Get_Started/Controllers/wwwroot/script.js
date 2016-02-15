@@ -4,16 +4,26 @@
         .module('app')
         .controller('MainController', MainController);
 
-    function MainController($scope) {
+    function MainController($scope, $http) {
 
-        var person = {
-            firstName: "Scott",
-            lastName: "Allen",
-            imageSrc:"http://odetocode.com/Images/scott_allen_2.jpg"
+        var onUserComplete = function (response) {
+            $scope.user = response.data;
         };
 
+        var onError = function (reason) {
+            $scope.error = "Could not fetch the user";
+        }
+
+
+        // https://api.github.com/users/odetocode
+        // https://api.github.com/users/helmy204
+        // https://api.github.com/users/robconery
+
+        $http.get("https://api.github.com/users/robconery")
+             .then(onUserComplete,onError);
+
         $scope.message = "Hello, Angular!";
-        $scope.person = person;
+
     };
 
 }());
