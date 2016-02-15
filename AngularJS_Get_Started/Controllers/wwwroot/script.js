@@ -1,8 +1,8 @@
 ﻿(function () {
 
-    angular
-        .module('app')
-        .controller('MainController', MainController);
+    //angular.module('githubViewer').controller('MainController', MainController);
+    angular.module('githubViewer').controller('MainController', ["$scope", "$http", MainController]);
+
 
     function MainController($scope, $http) {
 
