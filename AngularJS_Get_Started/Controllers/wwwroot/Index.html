@@ -10,6 +10,15 @@
 </head>
 <body ng-controller="MainController">
     <h1>{{ message }}</h1>
-    <!--<h1>{{ message.length }}</h1>-->
+    
+
+    <div>
+        <div>First name: {{person.firstName}}</div>
+        <div>Last name: {{person.lastName}}</div>
+        <div>
+            <img ng-src="{{person.imageSrc}}" title="{{person.firstName}} {{person.lastName}}" />
+        </div>
+
+    </div>
 </body>
 </html>
