@@ -20,8 +20,10 @@
         // https://api.github.com/users/robconery
         // https://api.github.com/users/angular
 
-        $http.get("https://api.github.com/users/angular")
-             .then(onUserComplete,onError);
+        $scope.search = function (username) {
+            $http.get("https://api.github.com/users/" + username)
+             .then(onUserComplete, onError);
+        }
 
         $scope.username = "angular";
         $scope.message = "GitHub Viewer";
